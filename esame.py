@@ -63,8 +63,7 @@ def compute_increments(time_series, first_year, last_year):
             yearly_data[year].append(data[1])
 
     # Media: per ogni anno calcolo la somma e divido per il nr di elementi presenti
-    #Loop through both keys and values, by using the items() method:
-    #yearly_averages = {year: sum(values) / len(values) for year, values in yearly_data.items()}
+    #Itera sia chiavi che valori con il metodo items()
     yearly_averages={}
     for year, values in yearly_data.items():
         yearly_averages[year] = (sum(values) / len(values))
