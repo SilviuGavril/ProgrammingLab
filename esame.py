@@ -1,3 +1,7 @@
+#Autore:    Gavril Silviu [EC2100912]
+#Rev:       1.0
+#Data:      15/02/2024
+
 class ExamException(Exception):
     pass
 
