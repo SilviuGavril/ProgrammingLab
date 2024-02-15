@@ -48,10 +48,11 @@ def compute_increments(time_series, first_year, last_year):
     yearly_data = {}
     
     for data in time_series:
-        #verifico che questa lista contenga i dati aspettati
+        #verifico che questa lista contenga i dati nella forma corretta
         validate_data(data)
         
-        #prendo solo la parte prima del car '-' del primo elemento della lista "data" e la trasformo in int
+        #prendo solo la parte prima del car '-' del primo elemento della lista "data" 
+        #e la trasformo in int
         year = int(data[0].split('-')[0])
         
         #prendo in considerazione solo gli anni nel range passato come argomenti
@@ -87,13 +88,11 @@ def compute_increments(time_series, first_year, last_year):
     return increments
 
 class CSVTimeSeriesFile:
-
     def __init__(self, name):
         if isinstance(name, str) is False:
             raise ExamException('Name "{}" not a string'.format(name))
         else:
             self.name = name
-
     def get_data(self):
         try:
             #questa funziona mi garantisce anche la chiusura del file
@@ -115,7 +114,7 @@ class CSVTimeSeriesFile:
             #mi salvo solo i primi 2 elementi della riga
             date, passengers = fields[:2]
 
-            #verifica di non processare la prima riga, un pò paranoico questo try
+            #verifica di non processare la prima riga, un pò paranoico questo try?
             try:
                 if date == "date":
                     continue
@@ -144,5 +143,5 @@ class CSVTimeSeriesFile:
 
             time_series.append([date, passengers])
             last_date = date
-
+            
         return time_series
