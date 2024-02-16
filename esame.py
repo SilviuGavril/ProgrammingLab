@@ -1,6 +1,7 @@
 #Autore:    Gavril Silviu [EC2100912]
-#Rev:       1.0
-#Data:      15/02/2024
+#Rev:       1.1
+#Data:      16/02/2024
+#Changelog: check if passengers is negative in compute_increments
 
 class ExamException(Exception):
     pass
@@ -21,6 +22,8 @@ def validate_data(data):
         raise ExamException('Data[0] is not a string')
     if not isinstance(data[1], int):
         raise ExamException('Data[1] is not an int')
+    if data[1]<0:
+        raise ExamException('Passengeres cannot be lower than zero')
     
 def compute_increments(time_series, first_year, last_year):
     #verifico che time_series sia valida
